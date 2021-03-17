@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 
-const Bird = ({birdButtom, birdLeft}) => {
+const Bird = ({birdBottom, birdLeft}) => {
 
     const birdWidth = 50;
     const birdHeight = 60;
@@ -12,7 +12,7 @@ const Bird = ({birdButtom, birdLeft}) => {
             backgroundColor: 'blue',
             width: birdWidth,
             height: birdHeight,
-            bottom: birdButtom - (birdHeight / 2),
+            bottom: birdBottom - (birdHeight / 2),
             left: birdLeft - (birdWidth / 2),
         }}/>
     )
