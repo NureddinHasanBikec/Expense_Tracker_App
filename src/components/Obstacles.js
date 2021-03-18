@@ -7,7 +7,8 @@ const Obstacles = ({
         obstacleWidth,
         obstacleHeight, 
         gap,
-        randomBottom,   
+        randomBottom,
+       gameOver,
     }) => {
 
     

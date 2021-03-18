@@ -1,12 +1,14 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, StyleSheet, Dimensions, TouchableWithoutFeedback} from 'react-native';
+import {View, StyleSheet, Dimensions, TouchableWithoutFeedback, Text } from 'react-native';
+ 
+import Bird from '../components/Bird';
+import Obstacles from '../components/Obstacles';
+ 
+ 
+ 
 
-import Bird from './components/Bird';
-import Obstacles from './components/Obstacles';
 
-
-
-export default function Main () {
+ const Main = (props) => {
 
 
     const screenWidth = Dimensions.get("screen").width;
@@ -105,24 +107,32 @@ export default function Main () {
       {
       console.log('game over')
       gameOver()
+       
      
     }
   })
-
+     
     const gameOver = () => {
         clearInterval(gameTimerId)
         clearInterval(obstaclesLeftTimerId)
         clearInterval(obstaclesLeftTimerIdTwo)
         setIsGameOver(true)
+        
     }
-
-
+  
+   
+    
 
     return(
         <TouchableWithoutFeedback onPress={jump}>
 
             <View style={styles.container}>
-                {isGameOver && <Text>{score}</Text>}
+
+                 
+                 {isGameOver && 
+                    <Text style={{fontSize:90, fontFamily:"ArchitectsDaughter-Regular"}}>
+                         Your score: {score}
+                     </Text>}
                 <Bird 
                     birdBottom = {birdBottom}
                     birdLeft = {birdLeft}
@@ -143,9 +153,12 @@ export default function Main () {
                     obstacleWidth = {obstacleWidth}
                     obstacleHeight = {obstacleHeight}
                     gap = {gap}
-                    />       
+                   
+                    />
+                   
+
             </View>
-        </TouchableWithoutFeedback>
+       </TouchableWithoutFeedback>
     );
 };
 
@@ -155,5 +168,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
-    }
+    },
+     
 })
+
+
+export {Main};
